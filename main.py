@@ -19,4 +19,6 @@ print(x)
 print(y)
 
 plt.plot(sorted_x, sorted_y, color='green', marker='o')
+plt.xlabel("Hours Studied")
+plt.ylabel("Exam Score")
 plt.show()
