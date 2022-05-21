@@ -2,23 +2,19 @@
 import matplotlib.pyplot as plt
 # pip install numpy
 import numpy as np
-# pip instal pandas
+# pip install pandas
 import pandas as pd
 
 df = pd.read_excel('Test.xlsx')
 
 data_array = df.to_numpy()
 transposed_array = data_array.transpose()
-print(transposed_array)
+sorted_array = transposed_array[:, np.argsort( transposed_array[1] ) ]
 
-x = np.array(transposed_array[1])
-y = np.array(transposed_array[0])
-sorted_x = np.sort(-x)
-sorted_y = np.sort(-y)
-print(x)
-print(y)
+x = np.array(sorted_array[1])
+y = np.array(sorted_array[0])
 
-plt.plot(sorted_x, sorted_y, color='green', marker='o')
+plt.plot(x, y, color='green', marker='o')
 plt.xlabel("Hours Studied")
 plt.ylabel("Exam Score")
 plt.show()
